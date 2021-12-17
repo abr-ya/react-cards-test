@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, FC } from "react";
 
-const Home = (): JSX.Element => {
+const Home: FC = () => {
   const [test] = useState("тест");
 
   return (

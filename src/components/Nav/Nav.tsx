@@ -6,6 +6,7 @@ const Nav = (): JSX.Element => {
   const title = "TS React App";
   const links = [
     { name: "Home", link: "/", exact: true },
+    { name: "API Test", link: "/api", exact: false },
     { name: "About", link: "/about", exact: false },
   ];
 

@@ -1,4 +1,4 @@
-// фильм для детальной страницы
+// отдельный фильм
 export interface IMovie {
   id: string;
   name: string;
