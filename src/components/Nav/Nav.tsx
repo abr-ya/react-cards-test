@@ -7,6 +7,7 @@ const Nav = (): JSX.Element => {
   const links = [
     { name: "Home", link: "/", exact: true },
     { name: "API Test", link: "/api", exact: false },
+    { name: "Saga Test", link: "/saga", exact: false },
     { name: "About", link: "/about", exact: false },
   ];
 
