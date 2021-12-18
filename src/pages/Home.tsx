@@ -1,14 +1,15 @@
-import React, { useState, FC } from "react";
+import React, { useEffect } from "react";
+import MoviesList from "components/MoviesList/MoviesListContainer";
 
-const Home: FC = () => {
-  const [test] = useState("тест");
+const Home = ({ getTrendsSaga }): JSX.Element => {
+  useEffect(() => {
+    getTrendsSaga();
+  }, []);
 
   return (
     <div className="container">
-      <h1 className="title">Home</h1>
-      <p>Это относительно простая и быстрая сборка WP5 + TS + React.</p>
-      <p>Это - тестовая домашняя страница.</p>
-      <p>{`Из стейта: ${test}`}</p>
+      <h1 className="title">Список карточек - Trends</h1>
+      <MoviesList />
     </div>
   );
 };
