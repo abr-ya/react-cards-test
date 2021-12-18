@@ -1,5 +1,6 @@
 declare namespace MovieCardModuleScssNamespace {
   export interface IMovieCardModuleScss {
+    buttons: string;
     card: string;
     imgWrapper: string;
   }

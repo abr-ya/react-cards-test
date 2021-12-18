@@ -1,5 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+import Button from "react-bootstrap/Button";
+import { Heart, HeartFill, Trash } from "react-bootstrap-icons";
 import { IMovie } from "../../interfaces";
 import styles from "./movieCard.module.scss";
 
@@ -8,27 +10,62 @@ export interface IMovieCard {
   isDetail: boolean;
 }
 
-const MovieCard = ({ data, isDetail }: IMovieCard): JSX.Element => (
-  <div className={`col-md-${isDetail ? 12 : 3} mb-3`}>
-    <div className={`${styles.card} ${isDetail ? "card flex-row" : "card"}`}>
-      {data.poster && (
-        <div className={styles.imgWrapper}>
-          <img src={`https://image.tmdb.org/t/p/w200${data.poster}`} alt="" />
-        </div>
-      )}
-      <div className="card-body">
-        {/* <Link to={`/movie/${data.id}`}></Link> */}
-        <h5 className="card-title">{data.name}</h5>
-        <p>{data.overview}</p>
-        <div className="badge badge-success">
-          {`popularity: ${data.popularity}`}
-        </div>
-        <div className="badge badge-info">
-          {`rating: ${data.voteAverage} (from ${data.voteCount})`}
+const MovieCard = ({ data, isDetail }: IMovieCard): JSX.Element => {
+  const likeHandler = (isLike: boolean) => {
+    console.log("likeHandler", data.id, isLike);
+  };
+
+  const deleteHandler = () => {
+    console.log("deleteHandler", data.id);
+  };
+
+  return (
+    <div className={`col-md-${isDetail ? 12 : 3} mb-3`}>
+      <div className={`${styles.card} ${isDetail ? "card flex-row" : "card"}`}>
+        {data.poster && (
+          <div className={styles.imgWrapper}>
+            {!isDetail && (
+              <div className={styles.buttons}>
+                <Button
+                  variant="outline-info"
+                  className="mb-1"
+                  onClick={() => likeHandler(true)}
+                >
+                  <Heart color="red" size={18} />
+                </Button>
+                <Button
+                  variant="outline-info"
+                  className="mb-1"
+                  onClick={() => likeHandler(false)}
+                >
+                  <HeartFill color="red" size={18} />
+                </Button>
+                <Button
+                  variant="outline-danger"
+                  className="mb-1"
+                  onClick={deleteHandler}
+                >
+                  <Trash color="black" size={18} />
+                </Button>
+              </div>
+            )}
+            <img src={`https://image.tmdb.org/t/p/w200${data.poster}`} alt="" />
+          </div>
+        )}
+        <div className="card-body">
+          {/* <Link to={`/movie/${data.id}`}></Link> */}
+          <h5 className="card-title">{data.name}</h5>
+          <p>{data.overview}</p>
+          <div className="badge badge-success">
+            {`popularity: ${data.popularity}`}
+          </div>
+          <div className="badge badge-info">
+            {`rating: ${data.voteAverage} (from ${data.voteCount})`}
+          </div>
         </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default MovieCard;
