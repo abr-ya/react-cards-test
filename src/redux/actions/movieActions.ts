@@ -1,6 +1,7 @@
 import { createCustomAction } from "typesafe-actions"; // createAction - без payload
 import {
   SET_LOADING,
+  SET_LIKE,
   SET_MOVIE,
   SET_PAGE,
   GET_TRENDS_SAGA,
@@ -19,12 +20,23 @@ export const setLoading = createCustomAction(SET_LOADING, (flag: boolean) => ({
   payload: flag,
 }));
 
-export const findMoviesSaga = (query: string, page: number) => ({
-  type: FIND_MOVIES_SAGA,
-  payload: { query, page },
-});
+export const setLike = createCustomAction(
+  SET_LIKE,
+  (id: string, hasLike: boolean) => ({
+    payload: { id, hasLike },
+  }),
+);
 
-export const getTrendsSaga = (page: number) => ({
-  type: GET_TRENDS_SAGA,
-  payload: { page },
-});
+export const getTrendsSaga = createCustomAction(
+  GET_TRENDS_SAGA,
+  (page: number) => ({
+    payload: { page },
+  }),
+);
+
+// export const findMoviesSaga = createCustomAction(
+//   FIND_MOVIES_SAGA,
+//   (query: string, page: number) => ({
+//     payload: { query, page },
+//   }),
+// );

@@ -8,11 +8,13 @@ import styles from "./movieCard.module.scss";
 export interface IMovieCard {
   data: IMovie;
   isDetail: boolean;
+  handlers?: any;
 }
 
-const MovieCard = ({ data, isDetail }: IMovieCard): JSX.Element => {
+const MovieCard = ({ data, isDetail, handlers }: IMovieCard): JSX.Element => {
   const likeHandler = (isLike: boolean) => {
-    console.log("likeHandler", data.id, isLike);
+    // console.log("likeHandler", data.id, isLike);
+    if (handlers.setLike) handlers.setLike(data.id, isLike);
   };
 
   const deleteHandler = () => {
@@ -29,16 +31,13 @@ const MovieCard = ({ data, isDetail }: IMovieCard): JSX.Element => {
                 <Button
                   variant="outline-info"
                   className="mb-1"
-                  onClick={() => likeHandler(true)}
+                  onClick={() => likeHandler(!data.hasLike)}
                 >
-                  <Heart color="red" size={18} />
-                </Button>
-                <Button
-                  variant="outline-info"
-                  className="mb-1"
-                  onClick={() => likeHandler(false)}
-                >
-                  <HeartFill color="red" size={18} />
+                  {data.hasLike ? (
+                    <HeartFill color="red" size={18} />
+                  ) : (
+                    <Heart color="red" size={18} />
+                  )}
                 </Button>
                 <Button
                   variant="outline-danger"
