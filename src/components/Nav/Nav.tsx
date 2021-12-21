@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import ModeSwither from "components/ModeSwither/ModeSwitherContainer";
 import "./Nav.scss";
 
 const Nav = (): JSX.Element => {
@@ -26,6 +27,7 @@ const Nav = (): JSX.Element => {
     <nav className="navbar navbar-dark bg-primary navbar-expand-lg">
       <div className="navbar-brand">{title}</div>
       <ul className="navbar-nav">{htmlLinks}</ul>
+      <ModeSwither />
     </nav>
   );
 };

@@ -1,7 +1,6 @@
 import { ActionType, getType } from "typesafe-actions";
 import * as actions from "../actions/movieActions";
 import { IMovie } from "../../interfaces";
-import { stat } from "fs";
 
 type moviesStateType = Readonly<{
   currentPage: IMovie[];

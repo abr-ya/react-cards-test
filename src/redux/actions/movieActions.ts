@@ -5,7 +5,7 @@ import {
   SET_MOVIE,
   SET_PAGE,
   GET_TRENDS_SAGA,
-  FIND_MOVIES_SAGA,
+  // FIND_MOVIES_SAGA,
 } from "./movieTypes";
 
 export const setMovie = createCustomAction(SET_MOVIE, (data: any) => ({

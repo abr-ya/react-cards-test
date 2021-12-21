@@ -6,6 +6,7 @@ import { RootStateType } from "redux/ReduxProvider";
 const mapStateToProps = (state: RootStateType) => ({
   data: state.movies.currentPage,
   loading: state.movies.loading,
+  isFavoriteMode: state.user.isFavoriteMode,
 });
 
 const mapDispatchToProps = {
