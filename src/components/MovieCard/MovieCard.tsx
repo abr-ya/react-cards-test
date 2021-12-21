@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 // import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import { Heart, HeartFill, Trash } from "react-bootstrap-icons";
@@ -8,10 +8,12 @@ import styles from "./movieCard.module.scss";
 export interface IMovieCard {
   data: IMovie;
   isDetail: boolean;
-  handlers?: any;
+  handlers?: any; // ToDo: Update it!
 }
 
 const MovieCard = ({ data, isDetail, handlers }: IMovieCard): JSX.Element => {
+  // for memo test
+  console.log(`MovieCard rendered`);
   const likeHandler = (isLike: boolean) => {
     // console.log("likeHandler", data.id, isLike);
     if (handlers.setLike) handlers.setLike(data.id, isLike);
@@ -67,4 +69,9 @@ const MovieCard = ({ data, isDetail, handlers }: IMovieCard): JSX.Element => {
   );
 };
 
-export default MovieCard;
+const movieLikeAreEqual = (
+  prevMovie: IMovieCard,
+  nextMovie: IMovieCard,
+): boolean => prevMovie.data.hasLike === nextMovie.data.hasLike;
+
+export default memo(MovieCard, movieLikeAreEqual);
