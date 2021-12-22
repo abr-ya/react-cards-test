@@ -13,14 +13,13 @@ export interface IMovieCard {
 
 const MovieCard = ({ data, isDetail, handlers }: IMovieCard): JSX.Element => {
   // for memo test
-  console.log(`MovieCard rendered`);
+  // console.log(`MovieCard rendered`);
   const likeHandler = (isLike: boolean) => {
-    // console.log("likeHandler", data.id, isLike);
     if (handlers.setLike) handlers.setLike(data.id, isLike);
   };
 
   const deleteHandler = () => {
-    console.log("deleteHandler", data.id);
+    if (handlers.delMovie) handlers.delMovie(data.id);
   };
 
   return (

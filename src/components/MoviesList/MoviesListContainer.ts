@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import MoviesList from "./MoviesList";
-import { setLike } from "redux/actions/movieActions";
+import { setLike, delMovie } from "redux/actions/movieActions";
 import { RootStateType } from "redux/ReduxProvider";
 
 const mapStateToProps = (state: RootStateType) => ({
@@ -11,6 +11,7 @@ const mapStateToProps = (state: RootStateType) => ({
 
 const mapDispatchToProps = {
   setLike,
+  delMovie,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(MoviesList);

@@ -33,6 +33,11 @@ const moviesReducer = (
       const movieN = pageCopy.findIndex((el) => el.id === id);
       pageCopy[movieN] = { ...pageCopy[movieN], hasLike };
       return { ...state, currentPage: pageCopy };
+    case getType(actions.delMovie):
+      const movies = [...state.currentPage].filter(
+        (el) => el.id !== action.payload,
+      );
+      return { ...state, currentPage: movies };
     case getType(actions.setCurrentPage):
       return { ...state, ...action.payload, loading: false };
     default:

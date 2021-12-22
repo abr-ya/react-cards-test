@@ -7,6 +7,7 @@ interface IMovieList {
   data: IMovie[];
   loading: boolean;
   setLike: (id: string, hasLike: boolean) => void;
+  delMovie: (id: string) => void;
   isFavoriteMode: boolean;
 }
 
@@ -14,6 +15,7 @@ const MoviesList = ({
   data,
   loading,
   setLike,
+  delMovie,
   isFavoriteMode,
 }: IMovieList): JSX.Element => {
   const [movies, setMovies] = useState<IMovie[]>([]);
@@ -33,7 +35,7 @@ const MoviesList = ({
               data={item}
               key={item.id}
               isDetail={false}
-              handlers={{ setLike }}
+              handlers={{ setLike, delMovie }}
             />
           ))}
         </div>

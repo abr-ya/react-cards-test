@@ -5,6 +5,7 @@ import {
   SET_MOVIE,
   SET_PAGE,
   GET_TRENDS_SAGA,
+  DEL_MOVIE,
   // FIND_MOVIES_SAGA,
 } from "./movieTypes";
 
@@ -26,6 +27,10 @@ export const setLike = createCustomAction(
     payload: { id, hasLike },
   }),
 );
+
+export const delMovie = createCustomAction(DEL_MOVIE, (id: string) => ({
+  payload: id,
+}));
 
 export const getTrendsSaga = createCustomAction(
   GET_TRENDS_SAGA,
