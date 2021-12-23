@@ -1,8 +1,10 @@
 import { combineReducers } from "redux";
-// import ... from "./...";
+import movies from "./movies";
+import user from "./user";
 
 const reducers = combineReducers({
-  // здесь импортированные выше собираем вместе
+  movies,
+  user,
 });
 
 export default reducers;

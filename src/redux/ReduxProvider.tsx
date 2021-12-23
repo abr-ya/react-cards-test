@@ -17,7 +17,7 @@ const ReduxProvider = ({
   children,
   initialState,
 }: IReduxProvider): JSX.Element => {
-  const isDEV = true; // ToDo: взять из env!
+  const isDEV = true; // process.env.DEV ? ToDo - настроить!
   const isDevToolsOn = (middlewares: any, on: boolean) =>
     on ? composeWithDevTools(middlewares) : middlewares;
 

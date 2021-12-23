@@ -10,4 +10,5 @@ export interface IMovie {
   voteCount: number;
   site: string;
   imdb: string;
+  hasLike?: boolean;
 }

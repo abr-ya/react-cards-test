@@ -16,6 +16,7 @@ const selectFields = (item: any) => ({
   voteCount: item.vote_count,
   site: "",
   imdb: "",
+  hasLike: false,
 });
 
 export const findMovies = async (query: string, page = 1) => {
