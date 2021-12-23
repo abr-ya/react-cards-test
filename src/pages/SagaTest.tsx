@@ -15,8 +15,7 @@ const SagaTest = ({ movies, getTrendsSaga }: ISagaTest): JSX.Element => {
     <div className="container">
       <h1>Saga Test page</h1>
       <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit
-        a rem id quae officiis distinctio ipsa, quidem nisi amet eos?
+        Это страница для тестирования Саг и контейнера. Лоадер крутится вечно.)
       </p>
       <Loader />
     </div>

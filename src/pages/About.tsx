@@ -1,17 +1,57 @@
 import React, { FC } from "react";
 
-const About: FC = () => {
-  console.log("!");
-
-  return (
-    <div className="container">
-      <h1>About page</h1>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit
-        a rem id quae officiis distinctio ipsa, quidem nisi amet eos?
-      </p>
-    </div>
-  );
-};
+const About: FC = () => (
+  <div className="container">
+    <h1>About page</h1>
+    <h2>Задание</h2>
+    <p>
+      Создать SPA со списком карточек, на каждой из которых выводится картинка и
+      любая информация на ваш вкус, которая пришла с эндпоинта. Для задачи можно
+      выбрать любое публичное api, например, отсюда
+      <a
+        href="https://github.com/public-apis/public-apis"
+        target="_blank"
+        rel="noopener noreferrer"
+      ></a>
+    </p>
+    <ul>
+      <b>Каким должно быть приложение?</b>
+      <li>Пришедшие данные хранятся в сторе.</li>
+      <li>
+        На карточке должна быть иконка лайка. При нажатии на которую, ставится
+        или убирается лайк. Иконка должна подкрашиваться, когда залайкана.
+      </li>
+      <li>
+        На карточке должна быть иконка удаления. При нажатии на которую,
+        карточка удаляется.
+      </li>
+      <li>
+        Сверху должна быть кнопка фильтра, которая по нажатию показывает только
+        залайканые карточки. При отжатии опять показываются все карточки.
+      </li>
+      <li>Дизайн не важен, главное, чтобы было просто и аккуратно.</li>
+      <li>
+        По стэку ориентируемся на список ниже. Остальные решения на вас.
+        <ul>
+          <li>React</li>
+          <li>Redux желательно, но можно выбрать другой стейт-менеджер</li>
+          <li>TS желательно, но не обязательно</li>
+        </ul>
+      </li>
+    </ul>
+    <h2>Решение</h2>
+    <ul>
+      Стэк (основное):
+      <li>React</li>
+      <li>TypeScript</li>
+      <li>Webpack</li>
+      <li>Redux</li>
+      <li>Redux-Saga</li>
+      <li>React Router</li>
+      <li>Bootstrap (контейнер, навигация, кнопки)</li>
+      <li>Axios</li>
+    </ul>
+  </div>
+);
 
 export default About;
