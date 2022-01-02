@@ -7,13 +7,21 @@ const commonConfig = require("./common");
 
 module.exports = merge(commonConfig, {
   mode: "production",
-  entry: "./index.tsx",
+  entry: {
+    app: {
+      import: "./index.tsx",
+      // dependOn: "...", // если выносить части в отдельные entry
+    },
+  },
   output: {
-    filename: "js/bundle.[contenthash].min.js",
+    filename: "js/[name].[contenthash].min.js",
     path: resolve(__dirname, "../../dist"),
     publicPath: "/",
   },
-  devtool: "source-map",
+  optimization: {
+    splitChunks: { chunks: "all" }, // отделяем vendor
+  },
+  // devtool: "source-map", // map на проде - для отладки
   plugins: [
     new CopyPlugin({
       patterns: [{ from: "../public", to: "./" }],
