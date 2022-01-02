@@ -16,7 +16,7 @@ module.exports = merge(commonConfig, {
   output: {
     filename: "js/[name].[contenthash].min.js",
     path: resolve(__dirname, "../../dist"),
-    publicPath: "/",
+    publicPath: "/react-cards-test/",
   },
   optimization: {
     splitChunks: { chunks: "all" }, // отделяем vendor
